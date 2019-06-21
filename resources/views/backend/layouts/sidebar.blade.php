@@ -13,35 +13,35 @@
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-{{--          @role('Admin')--}}
-{{--            <li class="nav-item">--}}
-{{--                <a href="{{route('admin.index')}}" class="nav-link">--}}
-{{--                    <i class="nav-icon fa fa-dashboard"></i>--}}
-{{--                    <p>--}}
-{{--                        DashBoard--}}
-{{--                    </p>--}}
-{{--                </a>--}}
-{{--            </li>--}}
+          @role('Admin')
+            <li class="nav-item">
+                <a href="{{route('home')}}" class="nav-link">
+                    <i class="nav-icon fa fa-dashboard"></i>
+                    <p>
+                        DashBoard
+                    </p>
+                </a>
+            </li>
 
-{{--            <li class="nav-item">--}}
-{{--                <a href="{{route('admin.roles_permissions.index')}}" class="nav-link">--}}
-{{--                    <i class="nav-icon fa fa-dashboard"></i>--}}
-{{--                    <p>--}}
-{{--                        Roles and Permissions--}}
-{{--                    </p>--}}
-{{--                </a>--}}
-{{--            </li>--}}
-{{--            <li class="nav-item">--}}
-{{--                <a href="{{route('admin.users.all_users')}}" class="nav-link">--}}
-{{--                    <i class="nav-icon fa fa-dashboard"></i>--}}
-{{--                    <p>--}}
-{{--                        User Management--}}
-{{--                    </p>--}}
-{{--                </a>--}}
-{{--            </li>--}}
-{{--            @endrole--}}
+            <li class="nav-item">
+                <a href="{{route('admin.roles_permissions.index')}}" class="nav-link">
+                    <i class="nav-icon fa fa-dashboard"></i>
+                    <p>
+                        Roles and Permissions
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin.users')}}" class="nav-link">
+                    <i class="nav-icon fa fa-dashboard"></i>
+                    <p>
+                        User Management
+                    </p>
+                </a>
+            </li>
+            @endrole
 
-{{--            @role('Landlord')--}}
+            @role('Manager')
 {{--            <li class="nav-item">--}}
 {{--                <a href="{{route('landlord.dashboard')}}" class="nav-link">--}}
 {{--                    <i class="nav-icon fa fa-dashboard"></i>--}}
@@ -124,12 +124,12 @@
 
 
 
-{{--            @endrole--}}
+            @endrole
 
 
-{{--            @role('Tenant')--}}
+            @role('RegularUser')
 
-{{--            @endrole--}}
+            @endrole
 
         </ul>
     </nav>
