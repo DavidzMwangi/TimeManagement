@@ -60,9 +60,16 @@ Route::group(['middleware'=>'auth'],function (){
     Route::post('save_new_task','TaskController@saveNewTask')->name('save_new_task');
     Route::get('delete_task/{task}','TaskController@deleteTask')->name('delete_task');
     Route::get('mark_as_complete_task/{task}','TaskController@markAsComplete')->name('mark_as_complete_task');
+
+
+    //profile
     });
 
 
     //for general routes that do not need specific role and permission
+    Route::post('update_profile','ProfileController@updateProfile')->name('update_profile');
+    Route::get('auth_user','ProfileController@authUser')->name('auth_user');
+
+    Route::get('profile','ProfileController@profileView')->name('profile');
 
 });

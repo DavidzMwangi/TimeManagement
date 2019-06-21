@@ -110,7 +110,7 @@
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar bg-primary sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar bg-dark sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
 {{--            <img src="{{asset('uploads/rentals.jpg')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"--}}
@@ -132,10 +132,10 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2014-2018 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+        <strong>Copyright &copy; {{date('Y')}} .</strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.0.0-alpha
+
         </div>
     </footer>
 

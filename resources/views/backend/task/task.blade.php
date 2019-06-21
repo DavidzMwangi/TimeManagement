@@ -10,12 +10,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>User Management</h1>
+                    <h1>Tasks Management</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">User</li>
+                        <li class="breadcrumb-item active">Task</li>
                     </ol>
                 </div>
             </div>
@@ -221,13 +221,14 @@
                     let formData=new FormData(form);
                     axios.post(url1,formData)
                         .then(res=>{
+                            swal("Success!", "Successfully saved new Task", "success");
 
                             me.extra_message='';
                             $('#new_task_modal').modal('hide');
                             me.tasks=res.data;
                         })
                         .catch(err=>{
-                            console.log(err)
+                            swal("Warning!","An error occurred, please retry","warning");
                             me.extra_message="An Error has Occurred. Please Try Again";
                         })
                 },
@@ -237,9 +238,11 @@
                     axios.get(url3)
                         .then(function (res) {
                             me.tasks=res.data;
+                            swal("Success!", "Successfully deleted task", "success");
+
                         })
                         .catch(err=>{
-                            console.log(err)
+                            swal("Warning!","An error occurred, please retry","warning");
                         })
 
                 },
@@ -255,6 +258,7 @@
                         })
                         .catch(err=>{
 
+                            swal("Warning!","An error occurred, please retry","warning");
 
                         })
                 }

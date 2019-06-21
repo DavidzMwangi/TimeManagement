@@ -229,12 +229,15 @@
                     let formData=new FormData(form);
                     axios.post(url1,formData)
                         .then(res=>{
+                            swal("Success!", "Successfully saved new User ", "success");
 
                             me.extra_message='';
                             $('#view_pictures_modal').modal('hide');
                             me.users=res.data;
                         })
                         .catch(err=>{
+                            swal("Warning!","An error occurred, please retry","warning");
+
                             me.extra_message="An Error has Occurred. Please Try Again";
                         })
                 },
@@ -244,8 +247,11 @@
                     axios.get(url3)
                         .then(function (res) {
                     me.users=res.data;
+                            swal("Success!", "Successfully deleted User", "success");
+
                         })
                         .catch(err=>{
+                            swal("Warning!","An error occurred, please retry","warning");
 
                         })
 
