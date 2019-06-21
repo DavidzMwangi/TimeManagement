@@ -136,6 +136,15 @@
                                 </p>
                             </a>
                         </li>
+
+            <li class="nav-item">
+                <a href="{{route('user.profile')}}" class="nav-link">
+                    <i class="nav-icon fa fa-book"></i>
+                    <p>
+                        Profile
+                    </p>
+                </a>
+            </li>
             @endrole
 
         </ul>
