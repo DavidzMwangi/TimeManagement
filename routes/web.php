@@ -55,8 +55,11 @@ Route::group(['middleware'=>'auth'],function (){
 
     //regular user routes
     Route::group(['middleware'=>['role:RegularUser'],'prefix'=>'user','as'=>'user.'],function () {
-
-
+    Route::get('tasks','TaskController@taskView')->name('tasks');
+    Route::get('get_user_tasks','TaskController@getUserTasks')->name('get_user_tasks');
+    Route::post('save_new_task','TaskController@saveNewTask')->name('save_new_task');
+    Route::get('delete_task/{task}','TaskController@deleteTask')->name('delete_task');
+    Route::get('mark_as_complete_task/{task}','TaskController@markAsComplete')->name('mark_as_complete_task');
     });
 
 

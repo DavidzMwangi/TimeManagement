@@ -128,7 +128,14 @@
 
 
             @role('RegularUser')
-
+                        <li class="nav-item">
+                            <a href="{{route('user.tasks')}}" class="nav-link">
+                                <i class="nav-icon fa fa-book"></i>
+                                <p>
+                                    Task
+                                </p>
+                            </a>
+                        </li>
             @endrole
 
         </ul>

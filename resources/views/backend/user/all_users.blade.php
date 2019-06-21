@@ -69,8 +69,6 @@
 
                                     <td>
 
-{{--                                        <a href="" title="Edit" >  <span class="fa fa-edit" ></span></a>--}}
-
                                         @if(\Illuminate\Support\Facades\Auth::user()->user_type==0)
 
                                         <a href="#" @click="deleteUser(user.id)"  title="Delete">  <span class="fa fa-trash"></span></a>
