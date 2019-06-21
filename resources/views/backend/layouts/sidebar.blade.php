@@ -41,6 +41,17 @@
             @endrole
 
             @role('Manager')
+
+
+            <li class="nav-item">
+                <a href="{{route('manager.manage_users')}}" class="nav-link">
+                    <i class="nav-icon fa fa-dashboard"></i>
+                    <p>
+                        User Management
+                    </p>
+                </a>
+            </li>
+
 {{--            <li class="nav-item">--}}
 {{--                <a href="{{route('landlord.dashboard')}}" class="nav-link">--}}
 {{--                    <i class="nav-icon fa fa-dashboard"></i>--}}

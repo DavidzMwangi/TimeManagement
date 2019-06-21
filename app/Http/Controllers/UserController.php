@@ -72,4 +72,14 @@ class UserController extends Controller
         return response()->json(User::all());
 
     }
+
+    public function manageUsersView()
+    {
+        return view('backend.user.manager_users');
+    }
+
+    public function getAllRegularUsers()
+    {
+        return response()->json(User::where('user_type','2')->get());
+    }
 }

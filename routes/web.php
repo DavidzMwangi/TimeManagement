@@ -48,7 +48,10 @@ Route::group(['middleware'=>'auth'],function (){
     //manage routes
     Route::group(['middleware'=>['role:Manager'],'prefix'=>'manager','as'=>'manager.'],function () {
 
-        Route::get('users','UserController@userView')->name('users');
+        Route::get('manage_users','UserController@manageUsersView')->name('manage_users');
+        Route::get('get_all_regular_users','UserController@getAllRegularUsers')->name('get_all_regular_users');
+        Route::post('save_new_user','UserController@saveNewUser')->name('save_new_user');
+        Route::get('delete_user/{user}','UserController@deleteUser')->name('delete_user');
 
     });
 
