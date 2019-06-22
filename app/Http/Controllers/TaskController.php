@@ -58,4 +58,14 @@ class TaskController extends Controller
         return response()->json(Task::where('user_id',Auth::id())->get());
 
     }
+
+    public function getAllTasks()
+    {
+        return response()->json(Task::all()->load('user'));
+    }
+
+    public function tasksView()
+    {
+        return view('backend.task.all_tasks');
+    }
 }

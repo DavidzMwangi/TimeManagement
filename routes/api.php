@@ -35,6 +35,7 @@ Route::group(['namespace'=>'Api'],function () {
         Route::get('get_all_users','UserController@getAllUsers')->name('get_all_users');
         Route::post('save_new_user','UserController@saveNewUser')->name('save_new_user');
         Route::get('delete_user/{user}','UserController@deleteUser')->name('delete_user');
+        Route::get('get_all_tasks','TaskController@getAllTasks')->name('get_all_tasks');
 
 
         //manager

@@ -38,6 +38,14 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{route('tasks_view')}}" class="nav-link">
+                    <i class="nav-icon fa fa-dashboard"></i>
+                    <p>
+                        Tasks
+                    </p>
+                </a>
+            </li>
             @endrole
 
             @role('Manager')
@@ -48,6 +56,15 @@
                     <i class="nav-icon fa fa-dashboard"></i>
                     <p>
                         User Management
+                    </p>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{route('tasks_view')}}" class="nav-link">
+                    <i class="nav-icon fa fa-dashboard"></i>
+                    <p>
+                        Tasks
                     </p>
                 </a>
             </li>
