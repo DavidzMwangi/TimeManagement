@@ -68,6 +68,7 @@ Route::group(['middleware'=>'auth'],function (){
     Route::post('save_new_task','TaskController@saveNewTask')->name('save_new_task');
     Route::get('delete_task/{task}','TaskController@deleteTask')->name('delete_task');
     Route::get('mark_as_complete_task/{task}','TaskController@markAsComplete')->name('mark_as_complete_task');
+    Route::get('edit_single_task/{task}','TaskController@editSingleTask')->name('edit_single_task');
 
 
     //profile

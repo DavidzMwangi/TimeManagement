@@ -29,7 +29,13 @@ class TaskController extends Controller
             'end_date_time'=>'required',
         ]);
 
-        $task=new Task();
+        if ($request->task_id!=null){
+
+            $task=Task::find($request->task_id);
+        }else{
+            $task=new Task();
+
+        }
         $task->title=$request->title;
         $task->description=$request->description;
         $task->start_date_time=$request->start_date_time;
@@ -67,5 +73,10 @@ class TaskController extends Controller
     public function tasksView()
     {
         return view('backend.task.all_tasks');
+    }
+
+    public function editSingleTask(Task $task)
+    {
+        return response()->json($task);
     }
 }

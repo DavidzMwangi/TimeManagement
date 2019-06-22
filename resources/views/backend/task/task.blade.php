@@ -32,7 +32,7 @@
                     <div class="card-header">
                         <h3 class="card-title">Tasks Management</h3>
 
-                        <button  class="btn btn-success float-right"  data-toggle="modal" data-target="#new_task_modal">Add New Task </button>
+                        <button  class="btn btn-success float-right"  data-toggle="modal" data-target="#new_task_modal" @click="clearTaskModel">Add New Task </button>
 
                     </div>
                     <!-- /.card-header -->
@@ -68,14 +68,8 @@
                                 <td>
                                     <button class="btn btn-success btn-sm" v-if="task.is_completed==0" @click="markComplete(task.id)">Mark As Complete</button>
 
-{{--                                    @if(\Illuminate\Support\Facades\Auth::user()->user_type==0)--}}
-
-{{--                                        <a href="#" @click="deleteUser(user.id)"  title="Delete">  <span class="fa fa-trash"></span></a>--}}
-{{--                                    @endif--}}
-
-{{--                                    @if(\Illuminate\Support\Facades\Auth::user()->user_type==1)--}}
                                         <a href="#" @click="deleteTask(task.id)" title="Delete">  <span class="fa fa-trash"></span></a>
-{{--                                    @endif--}}
+                                        <a href="#" @click="editTask(task.id)" title="Edit"  data-toggle="modal" data-target="#new_task_modal">  <span class="fa fa-edit"></span></a>
                                 </td>
                             </tr>
 
@@ -117,11 +111,12 @@
                                 {{csrf_field()}}
 
 
+                                <input :value="task.id" type="hidden" name="task_id">
                                 <div class="row">
                                     <div class="form-group col-sm-12 col-md-12">
                                         <label for="inputName" class="col-sm-2 control-label">Title</label>
 
-                                            <input type="text" class="form-control" id="inputName"   name="title" placeholder="Title">
+                                            <input type="text" class="form-control" id="inputName" v-model="task.title"  name="title" placeholder="Title">
                                     </div>
 
                                 </div>
@@ -130,7 +125,7 @@
                                     <div class="form-group col-sm-12 col-md-12">
                                         <label for="description" class="col-sm-2 control-label">Description</label>
 
-                                            <textarea class="form-control" id="description" name="description">
+                                            <textarea class="form-control" id="description" v-model="task.description" name="description">
 
 
                                             </textarea>
@@ -140,15 +135,17 @@
 
                                 <div class="row">
                                     <div class="form-group col-6">
-                                        <label for="start" class=" control-label">Start Date Time</label>
+                                        <label for="start" class=" control-label">Start Date Time </label>
 
-                                            <input type="datetime-local" class="form-control" name="start_date_time" id="start" >
+                                        <h6 v-if="task!=''">Current Start Date Time: @{{ task.start_date_time }}</h6>
+                                            <input type="datetime-local" class="form-control" name="start_date_time"  id="start" >
                                     </div>
 
                                     <div class="form-group col-6">
                                         <label for="end" class=" control-label">End Date Time</label>
+                                        <h6 v-if="task!=''">Current End Date Time: @{{ task.end_date_time }}</h6>
 
-                                            <input type="datetime-local" class="form-control" name="end_date_time" id="end" >
+                                            <input type="datetime-local" class="form-control" name="end_date_time"  v-model="task.end_date_time" id="end" >
                                     </div>
                                 </div>
 
@@ -194,6 +191,7 @@
             el:'#tasks_section',
             data:{
                 tasks:[],
+                task:{},
                 extra_message:'',
             },
             created:function(){
@@ -261,6 +259,22 @@
                             swal("Warning!","An error occurred, please retry","warning");
 
                         })
+                },
+                editTask:function (taskId) {
+                    let url3='{{url('user/edit_single_task')}}'+'/'+taskId;
+                    let me=this;
+
+                    axios.get(url3)
+                        .then(res=>{
+                            me.task=res.data;
+                        })
+                        .catch(err=>{
+
+                        })
+
+                },
+                clearTaskModel:function () {
+                    this.task='';
                 }
             }
         })
