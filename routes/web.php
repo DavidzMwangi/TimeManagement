@@ -42,6 +42,9 @@ Route::group(['middleware'=>'auth'],function (){
         Route::get('get_all_users','UserController@getAllUsers')->name('get_all_users');
         Route::post('save_new_user','UserController@saveNewUser')->name('save_new_user');
         Route::get('delete_user/{user}','UserController@deleteUser')->name('delete_user');
+
+        Route::get('de_activate_user/{user}','UserController@deActivateUser')->name('de_activate_user');
+        Route::get('activate_user/{user}','UserController@activateUser')->name('activate_user');
     });
 
 
@@ -52,6 +55,8 @@ Route::group(['middleware'=>'auth'],function (){
         Route::get('get_all_regular_users','UserController@getAllRegularUsers')->name('get_all_regular_users');
         Route::post('save_new_user','UserController@saveNewUser')->name('save_new_user');
         Route::get('delete_user/{user}','UserController@deleteUser')->name('delete_user');
+        Route::get('de_activate_user/{user}','UserController@deActivateUser')->name('de_activate_user');
+        Route::get('activate_user/{user}','UserController@activateUser')->name('activate_user');
 
     });
 

@@ -65,6 +65,10 @@
                                         <span class="badge badge-danger" v-if="user.is_active==0">No</span>
                                         <span class="badge badge-primary" v-if="user.is_active==1">Yes</span>
 
+
+                                        <button class="btn btn-sm btn-success" v-if="user.is_active==0" @click="activateUser(user.id)">Activate</button>
+                                        <button class="btn btn-sm btn-danger" v-if="user.is_active==1" @click="deactivateUser(user.id)">De-Activate</button>
+
                                     </td>
 
                                     <td>
@@ -255,6 +259,40 @@
 
                         })
 
+                },
+
+                activateUser:function (userId) {
+                    let url="{{url('admin/activate_user')}}"+'/'+userId;
+                    let me=this;
+                    axios.get(url)
+                        .then(res=>{
+                            swal("Success!", "Successfully Activated User", "success");
+                            me.getAllUsers();
+
+                        })
+                        .catch(err=>{
+                            console.log(err);
+
+                            swal("Warning!","An error occurred, please retry","warning");
+
+                        })
+                },
+                deactivateUser:function (userId) {
+                    let url1="{{url('admin/de_activate_user')}}"+'/'+userId;
+                    let me=this;
+
+                    axios.get(url1)
+                        .then(res=>{
+                            swal("Success!", "Successfully De-Activated User", "success");
+
+                            me.getAllUsers();
+
+                        })
+                        .catch(err=>{
+                            swal("Warning!","An error occurred, please retry","warning");
+                            console.log(err);
+
+                        })
                 }
             }
         })

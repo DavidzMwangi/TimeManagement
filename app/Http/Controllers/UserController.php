@@ -82,4 +82,20 @@ class UserController extends Controller
     {
         return response()->json(User::where('user_type','2')->get());
     }
+
+    public function deActivateUser(User $user)
+    {
+        $user->is_active=false;
+        $user->save();
+
+        return response()->json(User::all());
+    }
+
+    public function activateUser(User $user)
+    {
+        $user->is_active=true;
+        $user->save();
+
+        return response()->json(User::all());
+    }
 }
